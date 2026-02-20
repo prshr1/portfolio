@@ -6,7 +6,7 @@
       "title": "Gravitational Slingshot Dynamics in Three-Body Systems",
       "type": "research",
       "abstract": "Numerical investigation of energy amplification and orbital scattering in three-body gravitational slingshots around star–planet systems.",
-      "date": "2025",
+      "date": "2026",
       "tags": [
         "astrophysics",
         "orbital-dynamics",
@@ -56,6 +56,112 @@
       },
       "relatedProjects": [
         "advanced-machining-fundamentals"
+      ]
+    },
+    {
+      "id": "astrostatistics-lab-1-hubble-constant-hubble-time",
+      "slug": "astrostatistics-lab-1-hubble-constant-hubble-time",
+      "title": "Lab 1: Hubble Constant Estimation and Hubble Time Inference",
+      "type": "project",
+      "abstract": "Weighted least-squares regression and bootstrap resampling applied to Type Ia supernova distance-modulus data to estimate H0 and propagate uncertainty into the Hubble time.",
+      "date": "2023-02",
+      "tags": [
+        "astrostatistics",
+        "cosmology",
+        "regression",
+        "uncertainty-analysis"
+      ],
+      "status": "published",
+      "links": {
+        "pdf": "/projects/astrostatistics-bayesian-modeling/Lab1.pdf"
+      },
+      "relatedProjects": [
+        "astrostatistics-bayesian-modeling"
+      ]
+    },
+    {
+      "id": "astrostatistics-lab-2-brown-dwarf-temperature-mcmc",
+      "slug": "astrostatistics-lab-2-brown-dwarf-temperature-mcmc",
+      "title": "Lab 2: Brown Dwarf Temperature Inference with MCMC",
+      "type": "project",
+      "abstract": "Bayesian fitting of Planck-law spectral models using custom MCMC samplers to estimate brown dwarf effective temperature and quantify posterior sensitivity across prior choices.",
+      "date": "2023-03",
+      "tags": [
+        "astrostatistics",
+        "bayesian-methods",
+        "mcmc",
+        "stellar-physics"
+      ],
+      "status": "published",
+      "links": {
+        "pdf": "/projects/astrostatistics-bayesian-modeling/Lab2.pdf"
+      },
+      "relatedProjects": [
+        "astrostatistics-bayesian-modeling"
+      ]
+    },
+    {
+      "id": "astrostatistics-lab-3-exoplanet-transit-detrending",
+      "slug": "astrostatistics-lab-3-exoplanet-transit-detrending",
+      "title": "Lab 3: Exoplanet Transit Detrending and Depth Recovery",
+      "type": "project",
+      "abstract": "Time-series preprocessing, global detrending, and Bayesian transit fitting used to recover shallow exoplanet transit depth under correlated instrumental systematics.",
+      "date": "2023-04",
+      "tags": [
+        "astrostatistics",
+        "exoplanets",
+        "time-series",
+        "mcmc"
+      ],
+      "status": "published",
+      "links": {
+        "pdf": "/projects/astrostatistics-bayesian-modeling/Lab3.pdf"
+      },
+      "relatedProjects": [
+        "astrostatistics-bayesian-modeling"
+      ]
+    },
+    {
+      "id": "astrostatistics-lab-4-rv-model-selection-gliese-581",
+      "slug": "astrostatistics-lab-4-rv-model-selection-gliese-581",
+      "title": "Lab 4: Radial Velocity Model Selection for Gliese 581",
+      "type": "project",
+      "abstract": "Competing multi-planet radial velocity models evaluated with chi-square fitting, AIC/BIC penalties, and cross-validation to reassess the reported significance of Gliese 581 g.",
+      "date": "2023-05",
+      "tags": [
+        "astrostatistics",
+        "exoplanets",
+        "model-selection",
+        "radial-velocity"
+      ],
+      "status": "published",
+      "links": {
+        "pdf": "/projects/astrostatistics-bayesian-modeling/Lab4.pdf"
+      },
+      "relatedProjects": [
+        "astrostatistics-bayesian-modeling"
+      ]
+    },
+    {
+      "id": "astrostatistics-final-dark-matter-vs-mond",
+      "slug": "astrostatistics-final-dark-matter-vs-mond",
+      "title": "Final Project: Dark Matter vs MOND Rotation-Curve Model Discrimination",
+      "type": "project",
+      "abstract": "Galaxy rotation curves fit under cold dark matter and MOND frameworks using MCMC validation plus AIC/BIC diagnostics, with synthetic error-scaling tests to quantify data quality required for decisive model separation.",
+      "date": "2023-06",
+      "tags": [
+        "astrostatistics",
+        "galactic-dynamics",
+        "dark-matter",
+        "mond",
+        "model-selection"
+      ],
+      "status": "published",
+      "links": {
+        "pdf": "/projects/astrostatistics-bayesian-modeling/Final.pdf"
+      },
+      "relatedProjects": [
+        "astrostatistics-bayesian-modeling"
       ]
     }
   ]

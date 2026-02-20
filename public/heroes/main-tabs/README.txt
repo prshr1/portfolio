@@ -7,3 +7,4 @@ Main tab hero assets
 - Writing: writing-hero.png
 
 Replace these files to update hero media for the main navigation tabs.
+You can regenerate them from public/HeroVideo.mp4 using: npm run encode:hero

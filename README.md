@@ -142,6 +142,21 @@ Published writing files should live in [public/writing](public/writing). Use:
 
 This command moves files from `uploads/` into `public/writing/<slug>/` (no duplicate copy by default) and removes the source file if it is an exact duplicate.
 
+### Home Hero Video Encoding
+
+Use the helper script to generate optimized hero assets (`.mp4`, `.webm`, and poster image):
+
+`npm run encode:hero`
+
+Custom example:
+
+`npm run encode:hero -- --source public/HeroVideo.mp4 --start 00:00:05 --duration 6 --width 960 --fps 20 --crf-mp4 27 --crf-webm 36`
+
+Notes:
+- The source file is preserved.
+- The script writes outputs to `public/heroes/main-tabs/` by default.
+- It will stop with an error if an output path would overwrite the source.
+
 ### Canonical Project Filters
 
 The Projects page uses a simplified, canonical filter list. Update mappings in [src/lib/canonicalTags.ts](src/lib/canonicalTags.ts).

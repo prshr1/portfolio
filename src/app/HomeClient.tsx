@@ -26,6 +26,7 @@ export default function HomeClient({ featuredProjects }: HomeClientProps) {
   const [aboutImageStyle, setAboutImageStyle] = useState<{ width: string; height: string } | undefined>(undefined);
   const aboutRowRef = useRef<HTMLDivElement | null>(null);
   const aboutTextRef = useRef<HTMLDivElement | null>(null);
+  const heroCtaWidthClass = 'w-full sm:w-56';
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -143,7 +144,7 @@ export default function HomeClient({ featuredProjects }: HomeClientProps) {
             <MagneticButton>
               <Link
                 href="/projects"
-                className={uiButtonStyles.primaryLg}
+                className={`${uiButtonStyles.primaryLg} ${heroCtaWidthClass}`}
               >
                 Explore Projects
               </Link>
@@ -152,7 +153,7 @@ export default function HomeClient({ featuredProjects }: HomeClientProps) {
               <a
                 href={RESUME_PATH}
                 download
-                className={uiButtonStyles.outlineLg}
+                className={`${uiButtonStyles.outlineLg} ${heroCtaWidthClass}`}
               >
                 Download Resume
               </a>
@@ -160,7 +161,7 @@ export default function HomeClient({ featuredProjects }: HomeClientProps) {
             <MagneticButton>
               <button
                 onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
-                className={uiButtonStyles.outlineLg}
+                className={`${uiButtonStyles.outlineLg} ${heroCtaWidthClass}`}
               >
                 Learn More
               </button>

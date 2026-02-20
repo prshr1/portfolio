@@ -146,9 +146,9 @@ This keeps the original aspect ratio and resolution behavior while rendering tra
 For each `##` section in body content:
 
 1. First `**Insight:** ...` line becomes section insight.
-2. Any markdown image lines become section media items (stacked vertically when rendered).
-3. An italic line immediately after an image is used as that image's caption.
-4. If no inline image caption is found, a trailing italic line is treated as caption for the last image (legacy behavior).
+2. Markdown image lines and standalone YouTube URLs (or markdown links to YouTube URLs) become section media items.
+3. An italic line immediately after a media line is used as that media item's caption.
+4. If no inline media caption is found, a trailing italic line is treated as caption for the last media item (legacy behavior).
 5. Everything else becomes section description text.
 
 ## Notes

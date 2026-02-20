@@ -9,6 +9,7 @@ const typeLabels: Record<Writing['type'], string> = {
   research: 'Research Paper',
   technical: 'Technical Report',
   essay: 'Essay',
+  project: 'Project',
 };
 
 const statusColors: Record<Writing['status'], string> = {

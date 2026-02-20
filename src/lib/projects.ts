@@ -3,6 +3,7 @@ import 'server-only';
 import { promises as fs } from 'fs';
 import path from 'path';
 import type { ComponentType } from 'react';
+import { getYouTubeVideoId } from './media';
 
 export interface ProjectSection {
   title: string;
@@ -209,6 +210,24 @@ function extractImageSource(line: string): string | null {
   return null;
 }
 
+function extractYouTubeSource(line: string): string | null {
+  const bareUrl = line.match(/^(https?:\/\/\S+)$/);
+  if (bareUrl?.[1] && getYouTubeVideoId(bareUrl[1])) {
+    return bareUrl[1];
+  }
+
+  const markdownLink = line.match(/^\[[^\]]*]\(([^)]+)\)$/);
+  if (markdownLink?.[1] && getYouTubeVideoId(markdownLink[1])) {
+    return markdownLink[1];
+  }
+
+  return null;
+}
+
+function extractMediaSource(line: string): string | null {
+  return extractImageSource(line) || extractYouTubeSource(line);
+}
+
 function parseSectionsFromBody(body: string): NarrativeParseResult {
   const normalized = body.replace(/\r\n/g, '\n').trim();
   if (!normalized) {
@@ -260,7 +279,7 @@ function parseSectionsFromBody(body: string): NarrativeParseResult {
     const mediaItems: ProjectSectionMedia[] = [];
     for (let i = 0; i < lines.length; ) {
       const trimmed = lines[i].trim();
-      const media = extractImageSource(trimmed);
+      const media = extractMediaSource(trimmed);
       if (!media) {
         i += 1;
         continue;
@@ -286,8 +305,8 @@ function parseSectionsFromBody(body: string): NarrativeParseResult {
       mediaItems.push(caption ? { src: media, caption } : { src: media });
     }
 
-    // Backward-compatible fallback: if no inline image caption was found,
-    // treat a trailing italic line as caption for the last image in section.
+    // Backward-compatible fallback: if no inline media caption was found,
+    // treat a trailing italic line as caption for the last media item in section.
     if (mediaItems.length > 0 && !mediaItems.some((item) => item.caption)) {
       for (let i = lines.length - 1; i >= 0; i -= 1) {
         const line = lines[i].trim();

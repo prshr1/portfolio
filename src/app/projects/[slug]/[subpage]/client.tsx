@@ -12,6 +12,7 @@ import { PageShell } from '@/components/PageShell';
 import { ProjectHeroMedia } from '@/components/ProjectHeroMedia';
 import { MarkdownText } from '@/components/MarkdownText';
 import { fadeInUp, staggerContainer } from '@/lib/animations';
+import { isVideoMedia, isYouTubeUrl } from '@/lib/media';
 import { Project, ProjectSubpage } from '@/lib/projects';
 import { useMemo } from 'react';
 import { useLightbox } from '@/lib/useLightbox';
@@ -22,8 +23,6 @@ interface ProjectSubpageClientProps {
   subpage: ProjectSubpage;
   children?: React.ReactNode;
 }
-
-const isVideoMedia = (media: string) => /\.(mp4|mov|webm)$/i.test(media);
 
 function ProjectSubpageClient({ project, subpage, children }: ProjectSubpageClientProps) {
   const hasSubpageNav = Boolean(project.subpages && project.subpages.length > 0);
@@ -43,11 +42,11 @@ function ProjectSubpageClient({ project, subpage, children }: ProjectSubpageClie
       subpage.sections.forEach((section) => {
         if (section.mediaItems && section.mediaItems.length > 0) {
           section.mediaItems.forEach((item) => {
-            if (!isVideoMedia(item.src)) {
+            if (!isVideoMedia(item.src) && !isYouTubeUrl(item.src)) {
               images.push(item.src);
             }
           });
-        } else if (section.media && !isVideoMedia(section.media)) {
+        } else if (section.media && !isVideoMedia(section.media) && !isYouTubeUrl(section.media)) {
           images.push(section.media);
         }
       });

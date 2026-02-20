@@ -14,6 +14,7 @@ import { PageShell } from '@/components/PageShell';
 import { ProjectHeroMedia } from '@/components/ProjectHeroMedia';
 import { MarkdownText } from '@/components/MarkdownText';
 import { fadeInUp, standardDuration, standardEase } from '@/lib/animations';
+import { isVideoMedia, isYouTubeUrl } from '@/lib/media';
 import { Project } from '@/lib/projects';
 import { Writing } from '@/lib/writing';
 import { formatDate, getDuration, accentVars } from '@/lib/utils';
@@ -25,8 +26,6 @@ interface ProjectDetailClientProps {
   relatedWritings?: Writing[];
   children?: React.ReactNode;
 }
-
-const isVideoMedia = (media: string) => /\.(mp4|mov|webm)$/i.test(media);
 
 export default function ProjectDetailClient({
   project,
@@ -42,8 +41,10 @@ export default function ProjectDetailClient({
         }
         return section.media ? [section.media] : [];
       })
-      .filter((media) => !isVideoMedia(media));
-    const galleryImages = (project.gallery ?? []).filter((media) => !isVideoMedia(media));
+      .filter((media) => !isVideoMedia(media) && !isYouTubeUrl(media));
+    const galleryImages = (project.gallery ?? []).filter(
+      (media) => !isVideoMedia(media) && !isYouTubeUrl(media)
+    );
     return Array.from(new Set([...sectionImages, ...galleryImages]));
   }, [project.gallery, project.sections]);
   const {
@@ -142,55 +143,6 @@ export default function ProjectDetailClient({
                 <span className="font-semibold capitalize">{project.tags[0]}</span>
               </span>
             </div>
-
-            {relatedWritings.length > 0 && (
-              <div className="mt-6 pt-5 border-t border-white/10">
-                <p className="text-xs md:text-sm uppercase tracking-wider text-gray-400 mb-3">
-                  Related Writing
-                </p>
-                <div className="space-y-3">
-                  {relatedWritings.map((writing) => {
-                    const pdfHref = getWritingPdf(writing);
-
-                    return (
-                      <div
-                        key={writing.id}
-                        className="rounded-lg border border-cyan-500/25 bg-white/[0.02] p-3 md:p-4"
-                      >
-                        <p className="font-semibold mb-2 text-sm md:text-base">{writing.title}</p>
-                        <div className="flex flex-wrap gap-2">
-                          {pdfHref && (
-                            <>
-                              <a
-                                href={pdfHref}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className={uiButtonStyles.outlineSm}
-                              >
-                                View Writing
-                              </a>
-                              <a
-                                href={pdfHref}
-                                download
-                                className={uiButtonStyles.primarySm}
-                              >
-                                Download Writing
-                              </a>
-                            </>
-                          )}
-                          <Link
-                            href={`/writing#${writing.slug}`}
-                            className={uiButtonStyles.outlineSm}
-                          >
-                            Writing Tab
-                          </Link>
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            )}
           </motion.div>
 
           {/* Full Description / Narrative Sections */}
@@ -224,6 +176,56 @@ export default function ProjectDetailClient({
                   paragraphClassName={uiTextStyles.bodyParagraph}
                 />
               )}
+            </motion.div>
+          )}
+
+          {/* Related Writings */}
+          {relatedWritings.length > 0 && (
+            <motion.div variants={fadeInUp} className="mb-12 pt-4 border-t border-white/10">
+              <p className="text-xs md:text-sm uppercase tracking-wider text-gray-400 mb-3">
+                Related Writings
+              </p>
+              <div className="space-y-3">
+                {relatedWritings.map((writing) => {
+                  const pdfHref = getWritingPdf(writing);
+
+                  return (
+                    <div
+                      key={writing.id}
+                      className="rounded-lg border border-cyan-500/25 bg-white/[0.02] p-3 md:p-4"
+                    >
+                      <p className="font-semibold mb-2 text-sm md:text-base">{writing.title}</p>
+                      <div className="flex flex-wrap gap-2">
+                        {pdfHref && (
+                          <>
+                            <a
+                              href={pdfHref}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className={uiButtonStyles.outlineSm}
+                            >
+                              View Writing
+                            </a>
+                            <a
+                              href={pdfHref}
+                              download
+                              className={uiButtonStyles.primarySm}
+                            >
+                              Download Writing
+                            </a>
+                          </>
+                        )}
+                        <Link
+                          href={`/writing#${writing.slug}`}
+                          className={uiButtonStyles.outlineSm}
+                        >
+                          Writing Tab
+                        </Link>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
             </motion.div>
           )}
 

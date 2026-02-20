@@ -2,7 +2,7 @@ export interface Writing {
   id: string;
   slug: string;
   title: string;
-  type: 'research' | 'technical' | 'essay';
+  type: 'research' | 'technical' | 'essay' | 'project';
   abstract: string;
   date: string;
   tags: string[];
