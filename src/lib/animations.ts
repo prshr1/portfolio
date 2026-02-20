@@ -1,5 +1,6 @@
 import { Variants } from 'framer-motion';
 
+<<<<<<< HEAD
 export const standardDuration = 0.5;
 export const standardEase: [number, number, number, number] = [0.22, 1, 0.36, 1];
 export const standardStaggerChildren = 0.1;
@@ -14,12 +15,18 @@ export const interactionSpring = {
   restDelta: 0.5,
 };
 
+=======
+>>>>>>> 5310e64d237822ff8a9facfe5bf7db7642d9b681
 export const fadeInUp: Variants = {
   initial: { opacity: 0, y: 20 },
   animate: { 
     opacity: 1, 
     y: 0,
+<<<<<<< HEAD
     transition: { duration: standardDuration, ease: standardEase },
+=======
+    transition: { duration: 0.6, ease: 'easeOut' },
+>>>>>>> 5310e64d237822ff8a9facfe5bf7db7642d9b681
   },
 };
 
@@ -27,7 +34,11 @@ export const fadeIn: Variants = {
   initial: { opacity: 0 },
   animate: { 
     opacity: 1,
+<<<<<<< HEAD
     transition: { duration: standardDuration, ease: standardEase },
+=======
+    transition: { duration: 0.6 },
+>>>>>>> 5310e64d237822ff8a9facfe5bf7db7642d9b681
   },
 };
 
@@ -36,7 +47,11 @@ export const slideInLeft: Variants = {
   animate: { 
     opacity: 1, 
     x: 0,
+<<<<<<< HEAD
     transition: { duration: standardDuration, ease: standardEase },
+=======
+    transition: { duration: 0.6, ease: 'easeOut' },
+>>>>>>> 5310e64d237822ff8a9facfe5bf7db7642d9b681
   },
 };
 
@@ -45,7 +60,11 @@ export const slideInRight: Variants = {
   animate: { 
     opacity: 1, 
     x: 0,
+<<<<<<< HEAD
     transition: { duration: standardDuration, ease: standardEase },
+=======
+    transition: { duration: 0.6, ease: 'easeOut' },
+>>>>>>> 5310e64d237822ff8a9facfe5bf7db7642d9b681
   },
 };
 
@@ -54,7 +73,11 @@ export const scaleIn: Variants = {
   animate: { 
     opacity: 1, 
     scale: 1,
+<<<<<<< HEAD
     transition: { duration: standardDuration, ease: standardEase },
+=======
+    transition: { duration: 0.6, ease: 'easeOut' },
+>>>>>>> 5310e64d237822ff8a9facfe5bf7db7642d9b681
   },
 };
 
@@ -63,12 +86,18 @@ export const staggerContainer: Variants = {
   animate: {
     opacity: 1,
     transition: {
+<<<<<<< HEAD
       staggerChildren: standardStaggerChildren,
       delayChildren: standardDelayChildren,
+=======
+      staggerChildren: 0.1,
+      delayChildren: 0.2,
+>>>>>>> 5310e64d237822ff8a9facfe5bf7db7642d9b681
     },
   },
 };
 
+<<<<<<< HEAD
 export const heroStagger: Variants = {
   initial: { opacity: 0 },
   animate: {
@@ -89,11 +118,14 @@ export const heroReveal: Variants = {
   },
 };
 
+=======
+>>>>>>> 5310e64d237822ff8a9facfe5bf7db7642d9b681
 export const staggerItem: Variants = {
   initial: { opacity: 0, y: 20 },
   animate: {
     opacity: 1,
     y: 0,
+<<<<<<< HEAD
     transition: { duration: standardDuration, ease: standardEase },
   },
 };
@@ -118,5 +150,8 @@ export const hoverLift: Variants = {
     y: interactionTapLiftY,
     scale: interactionTapScale,
     transition: { duration: interactionDuration, ease: standardEase },
+=======
+    transition: { duration: 0.5 },
+>>>>>>> 5310e64d237822ff8a9facfe5bf7db7642d9b681
   },
 };

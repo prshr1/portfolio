@@ -8,15 +8,19 @@ export function slugify(text: string): string {
 }
 
 export function formatDate(dateStr: string): string {
+<<<<<<< HEAD
   if (dateStr.toLowerCase() === 'present') {
     return 'Present';
   }
+=======
+>>>>>>> 5310e64d237822ff8a9facfe5bf7db7642d9b681
   const [year, month] = dateStr.split('-');
   const date = new Date(parseInt(year), parseInt(month) - 1);
   return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short' });
 }
 
 export function getDuration(startStr: string, endStr: string): string {
+<<<<<<< HEAD
   if (endStr.toLowerCase() === 'present') {
     const [startYear, startMonth] = startStr.split('-').map(Number);
     const start = new Date(startYear, startMonth - 1);
@@ -35,6 +39,8 @@ export function getDuration(startStr: string, endStr: string): string {
     return `${years} year${years !== 1 ? 's' : ''} ${months} month${months !== 1 ? 's' : ''}`;
   }
 
+=======
+>>>>>>> 5310e64d237822ff8a9facfe5bf7db7642d9b681
   const [startYear, startMonth] = startStr.split('-').map(Number);
   const [endYear, endMonth] = endStr.split('-').map(Number);
 
@@ -57,6 +63,7 @@ export function getDuration(startStr: string, endStr: string): string {
 export function clsx(...classes: (string | undefined | false)[]): string {
   return classes.filter(Boolean).join(' ');
 }
+<<<<<<< HEAD
 
 /**
  * Convert a hex colour to an RGB triplet string (e.g. "167 139 250").
@@ -82,3 +89,5 @@ export function accentVars(hex: string | undefined): React.CSSProperties {
     '--accent-rgb': hexToRgb(colour),
   } as React.CSSProperties;
 }
+=======
+>>>>>>> 5310e64d237822ff8a9facfe5bf7db7642d9b681

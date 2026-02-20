@@ -8,6 +8,10 @@
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "outDir": "./dist",
+<<<<<<< HEAD
+=======
+    "rootDir": "./src",
+>>>>>>> 5310e64d237822ff8a9facfe5bf7db7642d9b681
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
@@ -27,5 +31,9 @@
     ]
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+<<<<<<< HEAD
   "exclude": ["node_modules", ".next", "uploads", "public"]
+=======
+  "exclude": ["node_modules", ".next"]
+>>>>>>> 5310e64d237822ff8a9facfe5bf7db7642d9b681
 }

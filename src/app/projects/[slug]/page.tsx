@@ -1,7 +1,11 @@
 import { Metadata } from 'next';
+<<<<<<< HEAD
 import { getProjectSlugs, getProjectBySlug, getProjectMDXContent } from '@/lib/projects';
 import { getWritingsByProjectSlug } from '@/lib/writing';
 import { mdxComponents } from '@/components/mdx/MDXComponents';
+=======
+import { getProjectSlugs, getProjectBySlug, getProjects } from '@/lib/projects';
+>>>>>>> 5310e64d237822ff8a9facfe5bf7db7642d9b681
 import ProjectDetailClient from './client';
 
 export async function generateStaticParams() {
@@ -26,6 +30,10 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 
 export default async function ProjectDetailPage({ params }: { params: { slug: string } }) {
   const project = await getProjectBySlug(params.slug);
+<<<<<<< HEAD
+=======
+  const allProjects = await getProjects();
+>>>>>>> 5310e64d237822ff8a9facfe5bf7db7642d9b681
 
   if (!project) {
     return (
@@ -37,6 +45,7 @@ export default async function ProjectDetailPage({ params }: { params: { slug: st
     );
   }
 
+<<<<<<< HEAD
   // Load MDX content (rendered server-side, passed as children)
   const MDXContent = await getProjectMDXContent(params.slug);
   const relatedWritings = await getWritingsByProjectSlug(params.slug);
@@ -52,4 +61,15 @@ export default async function ProjectDetailPage({ params }: { params: { slug: st
       )}
     </ProjectDetailClient>
   );
+=======
+  const relatedProjects = allProjects
+    .filter(
+      (p) =>
+        p.slug !== params.slug &&
+        p.tags.some((tag) => project.tags.includes(tag))
+    )
+    .slice(0, 3);
+
+  return <ProjectDetailClient project={project} relatedProjects={relatedProjects} />;
+>>>>>>> 5310e64d237822ff8a9facfe5bf7db7642d9b681
 }

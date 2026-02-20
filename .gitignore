@@ -10,19 +10,28 @@ coverage/
 .next/
 dist/
 build/
+<<<<<<< HEAD
 out/
+=======
+>>>>>>> 5310e64d237822ff8a9facfe5bf7db7642d9b681
 
 # misc
 .DS_Store
 *.pem
+<<<<<<< HEAD
 *.log
 *.tsbuildinfo
+=======
+>>>>>>> 5310e64d237822ff8a9facfe5bf7db7642d9b681
 .env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
+<<<<<<< HEAD
 uploads/
+=======
+>>>>>>> 5310e64d237822ff8a9facfe5bf7db7642d9b681
 
 # logs
 npm-debug.log*
@@ -41,4 +50,8 @@ debug/
 *.sw?
 
 # OS
+<<<<<<< HEAD
+=======
+.DS_Store
+>>>>>>> 5310e64d237822ff8a9facfe5bf7db7642d9b681
 Thumbs.db
