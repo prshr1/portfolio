@@ -38,6 +38,7 @@ export default function HomeClient({ featuredProjects }: HomeClientProps) {
     const connection = (navigator as Navigator & {
       connection?: { saveData?: boolean; effectiveType?: string };
     }).connection;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     const isSlow =
       connection?.saveData ||
@@ -45,23 +46,14 @@ export default function HomeClient({ featuredProjects }: HomeClientProps) {
       connection?.effectiveType === '2g' ||
       connection?.effectiveType === '3g';
 
-    if (isSlow) {
+    if (isSlow || prefersReducedMotion) {
       return;
     }
 
-    let idleId: number | undefined;
-    const show = () => setShowHeroVideo(true);
-    if ('requestIdleCallback' in window) {
-      idleId = window.requestIdleCallback(show, { timeout: 1800 });
-    } else {
-      const id = setTimeout(show, 600);
-      return () => clearTimeout(id);
-    }
+    const id = window.setTimeout(() => setShowHeroVideo(true), 150);
 
     return () => {
-      if (idleId !== undefined && 'cancelIdleCallback' in window) {
-        window.cancelIdleCallback(idleId);
-      }
+      window.clearTimeout(id);
     };
   }, []);
 
@@ -113,21 +105,23 @@ export default function HomeClient({ featuredProjects }: HomeClientProps) {
           initial="initial"
           animate="animate"
         >
-          {/* Hero Background Video - Full Bleed */}
+          {/* Hero Background Media - Full Bleed */}
+          <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,_rgba(34,211,238,0.18),_transparent_58%),linear-gradient(180deg,_rgba(15,23,42,0.72),_rgba(2,6,23,0.92))]" />
           {showHeroVideo ? (
             <video
               autoPlay
               loop
               muted
               playsInline
-              preload="none"
+              preload="metadata"
+              poster={MAIN_TAB_HERO_MEDIA.homePoster}
               className="absolute inset-0 w-full h-full object-cover opacity-40 -z-10"
+              aria-hidden="true"
             >
+              <source src={MAIN_TAB_HERO_MEDIA.homeWebm} type="video/webm" />
               <source src={MAIN_TAB_HERO_MEDIA.home} type="video/mp4" />
             </video>
-          ) : (
-            <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,_rgba(34,211,238,0.18),_transparent_58%),linear-gradient(180deg,_rgba(15,23,42,0.72),_rgba(2,6,23,0.92))]" />
-          )}
+          ) : null}
 
           {/* Content Container - Centered with max-width */}
           <Container className="w-full py-20">
