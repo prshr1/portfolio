@@ -1,5 +1,4 @@
 /** @type {import('next').NextConfig} */
-<<<<<<< HEAD
 const createMDX = require('@next/mdx');
 const isDev = process.env.NODE_ENV === 'development';
 
@@ -21,21 +20,10 @@ const nextConfig = {
   // Only enable static export for production builds (GitHub Pages)
   ...(isDev ? {} : { output: 'export' }),
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
-=======
-const isDev = process.env.NODE_ENV === 'development';
-
-const nextConfig = {
-  // Only enable static export for production builds (GitHub Pages)
-  ...(isDev ? {} : { output: 'export' }),
->>>>>>> 5310e64d237822ff8a9facfe5bf7db7642d9b681
   trailingSlash: true,
   images: {
     unoptimized: true,
   },
 };
 
-<<<<<<< HEAD
 module.exports = withMDX(nextConfig);
-=======
-module.exports = nextConfig;
->>>>>>> 5310e64d237822ff8a9facfe5bf7db7642d9b681

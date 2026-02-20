@@ -1,6 +1,5 @@
 'use client';
 
-<<<<<<< HEAD
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useMemo } from 'react';
@@ -105,60 +104,11 @@ export default function ProjectDetailClient({
         {/* Content */}
         <ProjectContentShell
           className={layoutClassNames.projectContentExtended}
-=======
-import Image from 'next/image';
-import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { Navigation } from '@/components/Navigation';
-import { Footer } from '@/components/Footer';
-import { AnimatedSection } from '@/components/AnimatedSection';
-import { ProjectSection } from '@/components/ProjectSection';
-import { ProjectSectionImage } from '@/components/ProjectSectionImage';
-import { fadeInUp, staggerContainer } from '@/lib/animations';
-import { Project } from '@/lib/projects';
-import { formatDate, getDuration } from '@/lib/utils';
-
-interface ProjectDetailClientProps {
-  project: Project;
-  relatedProjects: Project[];
-}
-
-export default function ProjectDetailClient({
-  project,
-  relatedProjects,
-}: ProjectDetailClientProps) {
-  return (
-    <div className="min-h-screen flex flex-col">
-      <Navigation />
-
-      <main className="flex-1">
-        {/* Hero Image */}
-        <div className="relative w-full h-96 md:h-[500px] overflow-hidden mt-16">
-          {project.heroImage && (
-            <Image
-              src={project.heroImage}
-              alt={project.title}
-              fill
-              className="object-cover"
-              priority
-            />
-          )}
-          <div className="absolute inset-0 bg-black/40" />
-        </div>
-
-        {/* Content */}
-        <motion.section
-          className="container-max py-16"
-          variants={staggerContainer}
-          initial="initial"
-          animate="animate"
->>>>>>> 5310e64d237822ff8a9facfe5bf7db7642d9b681
         >
           {/* Breadcrumb and Back Link */}
           <AnimatedSection>
             <Link
               href="/projects"
-<<<<<<< HEAD
               className={`${uiLinkStyles.accent} mb-8 inline-block`}
             >
               {'<'} Back to Projects
@@ -241,47 +191,11 @@ export default function ProjectDetailClient({
                 </div>
               </div>
             )}
-=======
-              className="text-cyan-400 hover:text-cyan-300 mb-8 inline-block"
-            >
-              ← Back to Projects
-            </Link>
-          </AnimatedSection>
-
-          {/* Title */}
-          <motion.div variants={fadeInUp}>
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">{project.title}</h1>
-            <p className="text-xl text-gray-300 mb-8">{project.shortDescription}</p>
-          </motion.div>
-
-          {/* Meta Info */}
-          <motion.div
-            variants={fadeInUp}
-            className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12 py-8 border-y border-white/10"
-          >
-            <div>
-              <p className="text-sm text-gray-400 mb-1">Duration</p>
-              <p className="font-semibold">{getDuration(project.dates.start, project.dates.end)}</p>
-            </div>
-            <div>
-              <p className="text-sm text-gray-400 mb-1">Started</p>
-              <p className="font-semibold">{formatDate(project.dates.start)}</p>
-            </div>
-            <div>
-              <p className="text-sm text-gray-400 mb-1">Completed</p>
-              <p className="font-semibold">{formatDate(project.dates.end)}</p>
-            </div>
-            <div>
-              <p className="text-sm text-gray-400 mb-1">Category</p>
-              <p className="font-semibold capitalize">{project.tags[0]}</p>
-            </div>
->>>>>>> 5310e64d237822ff8a9facfe5bf7db7642d9b681
           </motion.div>
 
           {/* Full Description / Narrative Sections */}
           {project.sections && project.sections.length > 0 ? (
             // Scrollytelling Layout
-<<<<<<< HEAD
             <div className="mb-24">
               <motion.div variants={fadeInUp} className="mb-12">
                 <h2 className="text-3xl md:text-4xl font-bold mb-4">Project Narrative</h2>
@@ -310,67 +224,17 @@ export default function ProjectDetailClient({
                   paragraphClassName={uiTextStyles.bodyParagraph}
                 />
               )}
-=======
-            <div className="mb-32">
-              <motion.div variants={fadeInUp} className="mb-20 max-w-3xl">
-                <h2 className="text-2xl font-bold mb-4">Overview</h2>
-                <p className="text-gray-300 leading-relaxed mb-6">{project.fullDescription}</p>
-              </motion.div>
-
-              <div className="mb-24">
-                <motion.div variants={fadeInUp} className="mb-16">
-                  <h2 className="text-3xl md:text-4xl font-bold mb-2">Project Narrative</h2>
-                  <div className="w-16 h-1 bg-gradient-to-r from-cyan-400 to-transparent" />
-                </motion.div>
-
-                <div className="space-y-20">
-                  {project.sections.map((section, idx) => (
-                    <ProjectSection
-                      key={idx}
-                      title={section.title}
-                      insight={section.insight}
-                      description={section.description}
-                      layout={section.layout || (idx % 2 === 0 ? 'image-right' : 'image-left')}
-                      delay={idx * 0.1}
-                    >
-                      {section.media && (
-                        <ProjectSectionImage
-                          src={section.media}
-                          alt={section.title}
-                          caption={section.caption}
-                        />
-                      )}
-                    </ProjectSection>
-                  ))}
-                </div>
-              </div>
-            </div>
-          ) : (
-            // Fallback: Original Layout
-            <motion.div variants={fadeInUp} className="mb-16 max-w-3xl">
-              <h2 className="text-2xl font-bold mb-4">Overview</h2>
-              <p className="text-gray-300 leading-relaxed mb-6">{project.fullDescription}</p>
->>>>>>> 5310e64d237822ff8a9facfe5bf7db7642d9b681
             </motion.div>
           )}
 
           {/* Technologies */}
-<<<<<<< HEAD
           <motion.div variants={fadeInUp} className="mb-12">
             <h2 className="text-2xl font-bold mb-6 font-display">Technologies & Tools</h2>
-=======
-          <motion.div variants={fadeInUp} className="mb-16">
-            <h2 className="text-2xl font-bold mb-6">Technologies & Tools</h2>
->>>>>>> 5310e64d237822ff8a9facfe5bf7db7642d9b681
             <div className="flex flex-wrap gap-3">
               {project.technologies.map((tech) => (
                 <span
                   key={tech}
-<<<<<<< HEAD
                   className="px-4 py-2 accent-tag rounded-full text-sm font-medium transition-all"
-=======
-                  className="px-4 py-2 bg-cyan-500/20 text-cyan-300 rounded-full text-sm font-medium"
->>>>>>> 5310e64d237822ff8a9facfe5bf7db7642d9b681
                 >
                   {tech}
                 </span>
@@ -380,7 +244,6 @@ export default function ProjectDetailClient({
 
           {/* Gallery */}
           {project.gallery.length > 0 && (
-<<<<<<< HEAD
             <motion.div variants={fadeInUp} className="mb-12">
               <h2 className="text-2xl font-bold mb-6">Gallery</h2>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4 w-full">
@@ -413,25 +276,6 @@ export default function ProjectDetailClient({
                         />
                       </button>
                     )}
-=======
-            <motion.div variants={fadeInUp} className="mb-16">
-              <h2 className="text-2xl font-bold mb-6">Gallery</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {project.gallery.map((image, idx) => (
-                  <motion.div
-                    key={idx}
-                    className="relative aspect-video rounded-lg overflow-hidden"
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: idx * 0.1 }}
-                  >
-                    <Image
-                      src={image}
-                      alt={`${project.title} image ${idx + 1}`}
-                      fill
-                      className="object-cover hover:scale-110 transition-transform duration-300"
-                    />
->>>>>>> 5310e64d237822ff8a9facfe5bf7db7642d9b681
                   </motion.div>
                 ))}
               </div>
@@ -440,11 +284,7 @@ export default function ProjectDetailClient({
 
           {/* Video Demo */}
           {project.videoDemo && (
-<<<<<<< HEAD
             <motion.div variants={fadeInUp} className="mb-12">
-=======
-            <motion.div variants={fadeInUp} className="mb-16">
->>>>>>> 5310e64d237822ff8a9facfe5bf7db7642d9b681
               <h2 className="text-2xl font-bold mb-6">Demo Video</h2>
               <div className="relative aspect-video rounded-lg overflow-hidden bg-black/50">
                 <video
@@ -460,7 +300,6 @@ export default function ProjectDetailClient({
           )}
 
           {/* Links */}
-<<<<<<< HEAD
           <motion.div variants={fadeInUp} className="flex flex-wrap gap-4 mb-12">
             {linkItems
               .filter((item) => {
@@ -493,89 +332,5 @@ export default function ProjectDetailClient({
         onIndexChange={setLightboxIndex}
       />
     </PageShell>
-=======
-          <motion.div variants={fadeInUp} className="flex flex-wrap gap-4 mb-16">
-            {project.links.github && (
-              <a
-                href={project.links.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-6 py-3 bg-cyan-500 text-dark font-semibold rounded-lg hover:bg-cyan-400 transition-colors"
-              >
-                View on GitHub
-              </a>
-            )}
-            {project.links.paper && (
-              <a
-                href={project.links.paper}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-6 py-3 border-2 border-cyan-500 text-cyan-400 font-semibold rounded-lg hover:bg-cyan-500/10 transition-colors"
-              >
-                Read Paper
-              </a>
-            )}
-            {project.links.demo && (
-              <a
-                href={project.links.demo}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-6 py-3 border-2 border-cyan-500 text-cyan-400 font-semibold rounded-lg hover:bg-cyan-500/10 transition-colors"
-              >
-                Live Demo
-              </a>
-            )}
-          </motion.div>
-        </motion.section>
-
-        {/* Related Projects */}
-        {relatedProjects.length > 0 && (
-          <section className="py-16 bg-darker/50 border-t border-white/10">
-            <div className="container-max">
-              <AnimatedSection>
-                <h2 className="text-3xl font-bold mb-12">Related Projects</h2>
-              </AnimatedSection>
-              <motion.div
-                className="grid grid-cols-1 md:grid-cols-3 gap-6"
-                variants={staggerContainer}
-                initial="initial"
-                whileInView="animate"
-                viewport={{ once: true }}
-              >
-                {relatedProjects.map((related) => (
-                  <motion.div key={related.id}>
-                    <Link href={`/projects/${related.slug}`}>
-                      <div className="group glass-morphism overflow-hidden rounded-lg transition-all duration-300 hover:shadow-2xl hover:shadow-cyan-500/20 h-full">
-                        <div className="relative aspect-video bg-gradient-radial from-blue-500/10 to-transparent overflow-hidden">
-                          {related.heroImage && (
-                            <Image
-                              src={related.heroImage}
-                              alt={related.title}
-                              fill
-                              className="object-cover group-hover:scale-110 transition-transform duration-300"
-                            />
-                          )}
-                        </div>
-                        <div className="p-6">
-                          <h3 className="font-bold mb-2 group-hover:text-cyan-400 transition-colors">
-                            {related.title}
-                          </h3>
-                          <p className="text-sm text-gray-300 line-clamp-2">
-                            {related.shortDescription}
-                          </p>
-                        </div>
-                      </div>
-                    </Link>
-                  </motion.div>
-                ))}
-              </motion.div>
-            </div>
-          </section>
-        )}
-      </main>
-
-      <Footer />
-    </div>
->>>>>>> 5310e64d237822ff8a9facfe5bf7db7642d9b681
   );
 }

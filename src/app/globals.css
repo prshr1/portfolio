@@ -12,7 +12,6 @@ html {
   scroll-behavior: smooth;
 }
 
-<<<<<<< HEAD
 /* ─── Theme custom properties ─── */
 :root {
   --bg-primary: #1a2233;
@@ -42,12 +41,6 @@ body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
   font-family: var(--font-body), system-ui, -apple-system, sans-serif;
-=======
-body {
-  background: linear-gradient(135deg, #0a0e27 0%, #16213e 100%);
-  color: #e0e0e0;
-  font-family: system-ui, -apple-system, sans-serif;
->>>>>>> 5310e64d237822ff8a9facfe5bf7db7642d9b681
   font-feature-settings: 'rlig' 1, 'calt' 1;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -55,7 +48,6 @@ body {
   min-height: 100vh;
 }
 
-<<<<<<< HEAD
 h1,
 h2,
 h3,
@@ -64,8 +56,6 @@ h4 {
   letter-spacing: -0.01em;
 }
 
-=======
->>>>>>> 5310e64d237822ff8a9facfe5bf7db7642d9b681
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;
@@ -93,7 +83,6 @@ button {
   @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
 }
 
-<<<<<<< HEAD
 .reading-width {
   max-width: var(--reading-max);
 }
@@ -287,15 +276,3 @@ a:focus-visible {
   outline-offset: 2px;
   border-radius: 2px;
 }
-=======
-.gradient-text {
-  @apply bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent;
-}
-
-.glass-morphism {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 0.75rem;
-}
->>>>>>> 5310e64d237822ff8a9facfe5bf7db7642d9b681

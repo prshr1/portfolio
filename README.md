@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ﻿# Portfolio
 
 Personal portfolio built with Next.js (App Router), Tailwind CSS, and Framer Motion. Static export is enabled for GitHub Pages.
@@ -195,7 +194,4 @@ If deploying elsewhere, you can remove the export settings and configure normal 
 - Reorder subpages within a project: update the `order` value in each subpage object.
 - Update social links: edit [src/lib/site.ts](src/lib/site.ts).
 - Update contact email: edit [src/lib/site.ts](src/lib/site.ts).
-=======
-# Portfolio
->>>>>>> 5310e64d237822ff8a9facfe5bf7db7642d9b681
 

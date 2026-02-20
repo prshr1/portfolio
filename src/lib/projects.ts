@@ -1,19 +1,15 @@
-<<<<<<< HEAD
 import 'server-only';
 
 import { promises as fs } from 'fs';
 import path from 'path';
 import type { ComponentType } from 'react';
 
-=======
->>>>>>> 5310e64d237822ff8a9facfe5bf7db7642d9b681
 export interface ProjectSection {
   title: string;
   insight: string;
   description: string;
   media?: string;
   caption?: string;
-<<<<<<< HEAD
   mediaItems?: ProjectSectionMedia[];
   layout?: 'image-left' | 'image-right';
 }
@@ -39,11 +35,6 @@ export interface ProjectMetric {
   icon?: string;
 }
 
-=======
-  layout?: 'image-left' | 'image-right';
-}
-
->>>>>>> 5310e64d237822ff8a9facfe5bf7db7642d9b681
 export interface Project {
   id: string;
   slug: string;
@@ -55,16 +46,12 @@ export interface Project {
   gallery: string[];
   videoDemo?: string;
   technologies: string[];
-<<<<<<< HEAD
   metrics?: ProjectMetric[];
-=======
->>>>>>> 5310e64d237822ff8a9facfe5bf7db7642d9b681
   links: {
     github?: string;
     paper?: string;
     demo?: string;
     external?: string;
-<<<<<<< HEAD
     documentation?: string;
     slides?: string;
     videos?: string;
@@ -76,15 +63,12 @@ export interface Project {
     postprocessor?: string;
     mpc?: string;
     notebooks?: string;
-=======
->>>>>>> 5310e64d237822ff8a9facfe5bf7db7642d9b681
   };
   dates: {
     start: string;
     end: string;
   };
   featured: boolean;
-<<<<<<< HEAD
   draft?: boolean;
   order: number;
   accentColor?: string;
@@ -642,41 +626,3 @@ export async function getProjectSubpageMDXContent(
   if (!projectSubpages) return null;
   return projectSubpages.get(subpageSlug) || null;
 }
-=======
-  order: number;
-  sections?: ProjectSection[];
-}
-
-export interface ProjectsData {
-  projects: Project[];
-}
-
-// Simulate fetching from JSON file (Next.js 14 allows importing JSON directly)
-import projectsData from '@/content/projects.json';
-
-export async function getProjects(): Promise<Project[]> {
-  // Sort by featured first, then by order
-  const projects = (projectsData as ProjectsData).projects;
-  return projects.sort((a, b) => {
-    if (a.featured !== b.featured) {
-      return a.featured ? -1 : 1;
-    }
-    return a.order - b.order;
-  });
-}
-
-export async function getProjectBySlug(slug: string): Promise<Project | undefined> {
-  const projects = await getProjects();
-  return projects.find((p) => p.slug === slug);
-}
-
-export async function getFeaturedProjects(limit: number = 3): Promise<Project[]> {
-  const projects = await getProjects();
-  return projects.filter((p) => p.featured).slice(0, limit);
-}
-
-export async function getProjectSlugs(): Promise<string[]> {
-  const projects = await getProjects();
-  return projects.map((p) => p.slug);
-}
->>>>>>> 5310e64d237822ff8a9facfe5bf7db7642d9b681

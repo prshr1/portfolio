@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-<<<<<<< HEAD
 import { Libre_Baskerville, Work_Sans } from 'next/font/google';
 import { ContentPreloader } from '@/components/ContentPreloader';
 import { SpeculationRules } from '@/components/SpeculationRules';
@@ -28,11 +27,6 @@ const preloadManifest = getPreloadManifest();
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-=======
-import './globals.css';
-
-export const metadata: Metadata = {
->>>>>>> 5310e64d237822ff8a9facfe5bf7db7642d9b681
   title: 'Jorge Casas — Astrophysicist & Engineer',
   description: 'Portfolio showcasing research in astrophysics, exoplanets, trajectory optimization, and engineering projects.',
   keywords: ['astrophysics', 'engineering', 'portfolio', 'research', 'exoplanets'],
@@ -56,7 +50,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-<<<<<<< HEAD
       <body className={`${displayFont.variable} ${bodyFont.variable} font-body`}>
         <ThemeProvider>
           <SpeculationRules />
@@ -64,10 +57,6 @@ export default function RootLayout({
           <ScrollProgress />
           {children}
         </ThemeProvider>
-=======
-      <body>
-        {children}
->>>>>>> 5310e64d237822ff8a9facfe5bf7db7642d9b681
       </body>
     </html>
   );

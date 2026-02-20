@@ -1,6 +1,5 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-<<<<<<< HEAD
   darkMode: 'class',
   content: [
     './src/**/*.{js,ts,jsx,tsx,mdx}',
@@ -19,29 +18,14 @@ module.exports = {
         mist: '#c7ccd6',
         glow: '#6ee7ff',
         neon: '#00d9ff',
-=======
-  content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
-  ],
-  theme: {
-    extend: {
-      colors: {
-        dark: '#0a0e27',
-        darker: '#050811',
->>>>>>> 5310e64d237822ff8a9facfe5bf7db7642d9b681
       },
       animation: {
         'fade-in': 'fadeIn 0.6s ease-in',
         'slide-up': 'slideUp 0.6s ease-out',
-<<<<<<< HEAD
         'float': 'float 6s ease-in-out infinite',
         'glow-pulse': 'glowPulse 2s ease-in-out infinite',
         'drift': 'drift 8s ease-in-out infinite',
         'spin-slow': 'spin 8s linear infinite',
-=======
->>>>>>> 5310e64d237822ff8a9facfe5bf7db7642d9b681
       },
       keyframes: {
         fadeIn: {
@@ -52,7 +36,6 @@ module.exports = {
           '0%': { opacity: '0', transform: 'translateY(20px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
-<<<<<<< HEAD
         float: {
           '0%, 100%': { transform: 'translateY(0px)' },
           '50%': { transform: 'translateY(-20px)' },
@@ -67,13 +50,10 @@ module.exports = {
           '50%': { transform: 'translateX(0) translateY(-20px)' },
           '75%': { transform: 'translateX(-10px) translateY(-10px)' },
         },
-=======
->>>>>>> 5310e64d237822ff8a9facfe5bf7db7642d9b681
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
       },
-<<<<<<< HEAD
       boxShadow: {
         'glow-sm': '0 0 15px rgba(110, 231, 255, 0.3)',
         'glow': '0 0 30px rgba(110, 231, 255, 0.4)',
@@ -81,8 +61,6 @@ module.exports = {
         'glow-purple': '0 0 30px rgba(139, 92, 246, 0.4)',
         'neon-border': 'inset 0 0 20px rgba(110, 231, 255, 0.1)',
       },
-=======
->>>>>>> 5310e64d237822ff8a9facfe5bf7db7642d9b681
     },
   },
   plugins: [],
