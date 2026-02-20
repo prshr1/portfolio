@@ -1,0 +1,89 @@
+﻿export const project = {
+  "title": "Regeneratively Cooled Bi-Liquid Rocket Engine",
+  "tags": [
+    "rocket-propulsion",
+    "heat-transfer",
+    "fabrication",
+    "systems-engineering",
+    "hardware"
+  ],
+  "heroImage": "/projects/regenerative-liquid-rocket-engine/pulsar-section-view-landscape.png",
+  "gallery": [
+    "/projects/regenerative-liquid-rocket-engine/pulsar-engine_chamber-cad-iso.png",
+    "/projects/regenerative-liquid-rocket-engine/pulsar-engine_argon-pressurant-loop-cad.png",
+    "/projects/regenerative-liquid-rocket-engine/pulsar-engine_injector-body-printed.jpg",
+    "/projects/regenerative-liquid-rocket-engine/pulsar-engine_injector-internal-channel-view.jpg",
+    "/projects/regenerative-liquid-rocket-engine/pulsar-engine-injector-assembled-housing-01.jpg",
+    "/projects/regenerative-liquid-rocket-engine/pulsar-engine_gas-temperature-profile.gif",
+    "/projects/regenerative-liquid-rocket-engine/pulsar-engine_hardware-overview-video.mp4",
+    "/projects/regenerative-liquid-rocket-engine/pulsar-engine-nozzle-welded-01.jpg",
+    "/projects/regenerative-liquid-rocket-engine/pulsar-engine-nozzle-coated-01.jpg"
+  ],
+  "videoDemo": "/projects/regenerative-liquid-rocket-engine/pulsar-engine_hardware-overview-video.mp4",
+  "technologies": [
+    "Python",
+    "RPA (Rocket Propulsion Analysis)",
+    "TIG Welding",
+    "Sheet Metal Fabrication",
+    "Fusion 360",
+    "SolidWorks",
+    "P&ID Development",
+    "Instrumentation"
+  ],
+  "links": {
+    "github": "",
+    "documentation": ""
+  },
+  "dates": {
+    "start": "2025-06",
+    "end": "Present"
+  },
+  "draft": false,
+  "featured": true,
+  "order": 2,
+  "accentColor": "#fbbf24"
+}
+
+The Pulsar Engine project is a ground-up development of a pressure-fed liquid rocket engine executed under strict manufacturing constraintsâ€”specifically without access to CNC machiningâ€”forcing a design philosophy centered on analytical rigor, modularity, and fabrication-aware engineering. Rather than relying on precision subtractive manufacturing, the engine architecture was deliberately optimized for sheet forming, welding, additive components, and commercially available fittings, with every geometric decision filtered through build feasibility. Performance targets were established analytically and iteratively refined through simulation, but final designs were constrained by realistic material behavior, weld accessibility, sealing reliability, and inspection capability. 
+
+The methodology emphasized closed-loop iteration: model â†’ prototype â†’ inspect â†’ refine, ensuring that theoretical assumptions remained grounded in physical manufacturability. A complete pressure-fed system architecture and P&ID were developed to guarantee system-level coherence between tanks, regulators, injector, and chamber. Structural integrity and thermal survivability were validated through sectioning, weld characterization, and component stress evaluation rather than reliance on idealized CAD tolerances. What differentiates this work is not merely that an engine was designed, but that a coherent propulsion system was engineered to be buildable, inspectable, and testable under constrained fabrication resourcesâ€”demonstrating both theoretical discipline and pragmatic execution.
+
+## Design Constraints
+**Insight:** Engineering for buildability without precision machining
+
+The project began by defining performance goals and immediately translating them into geometries compatible with manual forming, welding, and additive manufacturing. Rather than designing idealized components and attempting to machine them, the design space was inverted: materials, tooling access, and welding methods defined allowable geometry. This constraint-driven methodology forced explicit trade studies between theoretical optimality and practical fabrication feasibility. The result was an engine architecture whose geometry is inseparable from its manufacturing strategy. This approach reflects real-world aerospace development under resource limitations rather than laboratory idealization.
+
+![Design Constraints](/projects/regenerative-liquid-rocket-engine/pulsar-engine_chamber-cad-iso.png)
+
+## Iterative Prototyping and Physical Validation
+**Insight:** Model â†’ Build â†’ Inspect â†’ Refine
+
+Instead of assuming nominal tolerances, each major component was physically inspected and, when necessary, sectioned to verify internal geometry and weld penetration. Weld beads were evaluated for uniformity, structural continuity, and potential stress concentration zones. Additively manufactured injector elements were cross-sectioned to confirm internal flow paths matched design intent. Deviations observed in fabrication were fed back into the design loop, refining wall thicknesses, channel dimensions, and assembly methods. This iterative cycle replaced reliance on precision machining with disciplined empirical validation. By embedding inspection into the development workflow, the project ensured that analytical predictions remained compatible with actual build quality. The methodology demonstrates engineering maturity in environments where process control must be earned rather than assumed.
+
+![Thermal Modeling](/projects/regenerative-liquid-rocket-engine/pulsar-engine_gas-temperature-profile.gif)
+
+*Transient gas temperature evolution from the thermal model*
+
+## System-Level Architecture and Integration
+**Insight:** From components to a coherent propulsion system
+
+The engine was developed as an integrated pressure-fed system rather than a standalone combustion device. A complete P&ID formalized the interaction between propellant tanks, pressurant loops, regulators, valves, and injector assembly. Component placement and routing were designed for accessibility, serviceability, and leak minimization. Pressure regulation strategy was selected to maintain stable chamber conditions despite tank depletion effects. The architecture prioritized operational robustness over complexity, reducing failure modes in the absence of precision hardware. Every subsystem was evaluated not only for performance but for assembly practicality and inspection accessibility. This systems-level discipline elevates the project beyond isolated hardware fabrication into full propulsion architecture design.
+
+![Test & Validation](/projects/regenerative-liquid-rocket-engine/pulsar-engine-pid.png)
+
+*P&ID overview used for test operations and instrumentation*
+
+## Structural and Thermal Risk Management
+**Insight:** Engineering margins without high-end tooling
+
+Without CNC-machined precision parts, structural reliability required conservative but deliberate margin selection. Wall thicknesses were chosen to balance hoop stress resistance with formability and weld reliability. Thermal exposure predictions informed material selection and surface treatment strategies, particularly near the throat region. Joint placement and seam orientation were selected to reduce peak stress concentrations and improve weld access. Rather than maximizing theoretical performance, the design prioritized survivability and repeatability under realistic fabrication conditions. Risk mitigation strategies were documented explicitly, ensuring traceability between predicted loads and structural decisions. This reflects an engineering approach grounded in reliability rather than theoretical optimization.
+
+## Design for Accessibility and Modularity
+**Insight:** Building a propulsion platform, not a single prototype
+
+The Pulsar Engine was intentionally modular to allow rapid iteration without full-system redesign. Injector plates, feed lines, and chamber assemblies were separable to enable targeted refinement. Standardized interfaces ensured replacement components could be fabricated with consistent tooling. This modularity reduced iteration cost and accelerated development cycles. Design documentation and version control preserved configuration traceability across revisions. By structuring the engine as a reconfigurable platform rather than a one-off build, the project demonstrates forward-looking engineering strategy. Such modular thinking mirrors practices used in professional propulsion development programs.
+
+## Differentiating Contribution
+**Insight:** Resource-constrained propulsion engineering with systems rigor
+
+Many academic propulsion projects assume access to advanced machining or focus primarily on simulation. This work instead demonstrates how disciplined analytical planning, inspection-driven iteration, and fabrication-aware design can produce a coherent propulsion system under constrained resources. The intellectual contribution lies in the methodology: aligning theory, manufacturability, and system integration from inception. The engine is not simply a design artifact, but a case study in engineering execution under constraint. For research and advanced engineering environments, this signals the ability to translate theory into hardware when ideal tooling is unavailable. It reflects both depth of understanding and adaptabilityâ€”qualities essential in experimental aerospace development.

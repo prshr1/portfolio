@@ -1,0 +1,21 @@
+﻿<svg xmlns='http://www.w3.org/2000/svg' width='1600' height='900' viewBox='0 0 1600 900' role='img' aria-label='Cool Worlds Outreach visual'>
+  <defs>
+    <linearGradient id='bg' x1='0' y1='0' x2='1' y2='1'>
+      <stop offset='0%' stop-color='#10152a'/>
+      <stop offset='100%' stop-color='#fb7185'/>
+    </linearGradient>
+    <radialGradient id='glow' cx='0.8' cy='0.2' r='0.9'>
+      <stop offset='0%' stop-color='rgba(255,255,255,0.35)'/>
+      <stop offset='100%' stop-color='rgba(255,255,255,0)'/>
+    </radialGradient>
+  </defs>
+  <rect width='1600' height='900' fill='url(#bg)'/>
+  <rect width='1600' height='900' fill='url(#glow)'/>
+  <g fill='none' opacity='0.28'>
+    <path d='M0 720 C 360 620, 580 780, 980 670 C 1250 600, 1420 660, 1600 610' stroke='white' stroke-width='3'/>
+    <path d='M0 780 C 280 700, 620 860, 940 760 C 1250 660, 1440 730, 1600 690' stroke='white' stroke-width='2'/>
+  </g>
+  <text x='96' y='360' fill='white' font-family='Libre Baskerville, Georgia, serif' font-size='66' font-weight='700'>Cool Worlds Outreach</text>
+  <text x='96' y='430' fill='rgba(255,255,255,0.9)' font-family='Work Sans, Arial, sans-serif' font-size='34'>Long-form astrophysics storytelling and motion design</text>
+  <text x='96' y='810' fill='rgba(255,255,255,0.75)' font-family='Work Sans, Arial, sans-serif' font-size='24'>Portfolio Project Visual</text>
+</svg>

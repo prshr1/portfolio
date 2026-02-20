@@ -1,0 +1,21 @@
+HERO BACKGROUND VIDEO PLACEHOLDER
+==================================
+
+This is a placeholder. Replace this with your actual video file:
+
+1. Prepare your video file (MP4 format recommended for best browser support)
+2. Save it as: hero-bg.mp4 in this directory (/public/)
+3. The video should:
+   - Loop seamlessly
+   - Be optimized for web (consider compressing to reduce file size)
+   - Have dimensions suitable for backgrounds (16:9 aspect ratio recommended)
+   - Be relatively short (3-5 seconds) for faster loading
+
+Example ffmpeg command to optimize:
+ffmpeg -i your-video.mp4 -c:v libx264 -preset slow -b:v 1000k -c:a aac -b:a 128k hero-bg.mp4
+
+The video will display with:
+- Full width/height coverage on desktop
+- 20% opacity (low opacity as requested)
+- Looping autoplay
+- Muted audio (required for autoplay)

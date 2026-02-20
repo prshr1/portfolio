@@ -1,0 +1,23 @@
+'use client';
+
+import { motion } from 'framer-motion';
+import { standardDuration, standardEase } from '@/lib/animations';
+
+/**
+ * Next.js App Router `template.tsx` re-mounts on every route change,
+ * giving us a natural hook for page-enter animations.
+ * Kept intentionally lightweight to avoid compounding with
+ * per-section animations.
+ */
+export default function Template({ children }: { children: React.ReactNode }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 14 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: standardDuration, ease: standardEase }}
+      style={{ willChange: 'opacity, transform' }}
+    >
+      {children}
+    </motion.div>
+  );
+}

@@ -1,0 +1,149 @@
+﻿export const project = {
+  "title": "Three-Body Gravitational Slingshot Dynamics",
+  "tags": [
+    "astrophysics",
+    "orbital-dynamics",
+    "numerical-simulation",
+    "chaos",
+    "research"
+  ],
+  "heroImage": "/projects/three-body-gravitational-slingshots/hero.jpg",
+  "gallery": [
+    "/projects/three-body-gravitational-slingshots/best_candidate.png",
+    "/projects/three-body-gravitational-slingshots/trajectory_tracks_planet.png",
+    "/projects/three-body-gravitational-slingshots/velocity_phase_space.png",
+    "/projects/three-body-gravitational-slingshots/energy_cdf.png",
+    "/projects/three-body-gravitational-slingshots/parameter_correlations.png"
+  ],
+  "videoDemo": "/projects/three-body-gravitational-slingshots/orbit_animation.mp4",
+  "technologies": [
+    "Python",
+    "Symplectic N-body Integrator",
+    "NumPy",
+    "SciPy",
+    "Matplotlib",
+    "MCMC (emcee)",
+    "Monte Carlo Sampling",
+    "Orbital Mechanics"
+  ],
+  "links": {
+    "github": "",
+    "paper": ""
+  },
+  "dates": {
+    "start": "2024-09",
+    "end": "Present"
+  },
+  "draft": false,
+  "featured": true,
+  "order": 1,
+  "accentColor": "#a78bfa"
+}
+
+This project explores gravitational slingshot dynamics beyond the classical two-body approximation by modeling hyperbolic flybys in full three-body systems. I developed a unified analytical and numerical framework to quantify energy ceilings in close-in gravitational slingshots, combining closed-form hyperbolic scattering theory with large-scale three-body Monte Carlo simulation in a hot Jupiter system. Starting from first principles, together with my PI, Dr. David Kipping, we derived strict two-body kinematic limits and geometric vector plateaus, then I built a high-fidelity integrator to test how real trajectories behave in a deep stellar potential. 
+
+The results show that while no trajectory exceeds the stellar two-body energy ceiling, three-body dynamics can amplify energy gains far beyond classical planet-only bounds through structured angular momentum exchange consistent with conservation of the Jacobi constant. This project demonstrates rigorous theoretical derivation, invariant-based diagnostics, and large-scale numerical validation to uncover efficiency frontiers in multi-body orbital systems.
+
+## Analytical Foundations
+**Insight:** Hyperbolic Scattering and Energy Ceilings
+
+At the core of the project is a closed-form solution to two-body hyperbolic scattering. In the rest frame of a gravitating body, the asymptotic velocity magnitude is conserved:
+
+$$
+|\mathbf{v}_{\infty}^{(+)}|
+=
+|\mathbf{v}_{\infty}^{(-)}|
+=
+v_{\infty}
+$$
+
+The encounter only rotates the velocity vector by a deflection angle
+
+$$
+\theta
+=
+2 \arctan\!\left(
+\frac{\mu}{b v_{\infty}^2}
+\right)
+$$
+
+where $\mu$ is the standard gravitational parameter and $b$ is the impact parameter.
+
+Transforming back to the inertial frame yields a strict kinematic ceiling for an unpowered gravity assist:
+
+$$
+\Delta V_{\max}
+=
+2 v_{\infty}
+$$
+
+This is the true kinematic ceiling and establishes the fundamental single-encounter speed gain limit, independent of numerical simulation.
+
+![The Inspiration](/projects/three-body-gravitational-slingshots/best_candidate.png)
+
+## Numerical Engine
+**Insight:** Large-Scale Three-Body Monte Carlo Simulation
+
+To explore behavior beyond idealized two-body theory, I built a high-fidelity three-body integrator modeling a starâ€“planetâ€“particle system. Over 24,000 trajectories were simulated using adaptive integration, randomized initial conditions, and strict physical filtering (unbound states, stellar clearance constraints, planetary encounter thresholds).
+
+For each trajectory, I tracked:
+
+- Star-centric specific orbital energy
+- Planet-relative hyperbolic excess velocity
+- Angular momentum evolution
+- Velocity vector change magnitude
+
+![The Approach](/projects/three-body-gravitational-slingshots/trajectory_tracks_planet.png)
+
+## Energy Efficiency Frontiers
+**Insight:** Scalar Speed vs. Vector Rotation Limits
+
+Two distinct ceilings emerge:
+
+**Scalar speed gain ceiling**
+
+$$
+\eta_{\text{speed}} = \frac{\Delta{V}}{{v}_{\infty,\text{p}}} \leq 1
+$$
+
+**Vector change plateau**
+
+$$
+\eta_{\text{vector}} = \frac{|\Delta{V}|}{2\sqrt2{v}_{\infty,\text{p}}}
+$$
+
+The first represents a physically meaningful energy frontier.
+The second reflects a purely geometric upper bound in Euclidean velocity space.
+
+In close-in hot Jupiter systems, trajectories frequently approach the scalar ceiling and cluster near vector-efficiency plateaus, revealing near-optimal angular deflection geometries.
+
+![Key Results](/projects/three-body-gravitational-slingshots/velocity_phase_space.png)
+
+## Breaking the Planet-Only Ceiling
+**Insight:** Three-Body Amplification in a Deep Stellar Potential
+
+Classical gravity assist analysis assumes the planet dominates locally. In a close-in system, this assumption fails: the stellar potential remains strong throughout the encounter.
+
+Simulations demonstrate that three-body trajectories exceed the planet-only two-body energy ceiling by over two orders of magnitude, yet remain strictly below the stellar two-body bound.
+
+The planet does not supply energy directly; rather, it acts as a geometric lever that redirects trajectories inside a deep stellar potential well, unlocking kinetic energy otherwise inaccessible in a purely two-body framework.
+
+## Invariant Diagnostics
+**Insight:** Energyâ€“Angular Momentum Coupling via Jacobi Constant
+
+To confirm physical consistency, results were analyzed in the framework of the Circular Restricted Three-Body Problem (CR3BP), where the conserved quantity is the Jacobi constant:
+
+$$
+C = -2\Omega - |\dot{{r}}|^2
+$$
+
+In dimensional form, inertial energy changes are coupled to angular momentum exchange:
+
+$$
+\Delta\mathcal{E} \propto {\Omega} \cdot \Delta{L}
+$$
+
+Monte Carlo results exhibit this correlation explicitly: large energy boosts correspond to large changes in angular momentum delivered by planetary torque.
+
+This confirms that observed amplification arises from structured three-body dynamics rather than numerical artifacts.
+

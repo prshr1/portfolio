@@ -1,0 +1,62 @@
+{
+  "writings": [
+    {
+      "id": "three-body-slingshot-paper",
+      "slug": "three-body-slingshot-paper",
+      "title": "Gravitational Slingshot Dynamics in Three-Body Systems",
+      "type": "research",
+      "abstract": "Numerical investigation of energy amplification and orbital scattering in three-body gravitational slingshots around star–planet systems.",
+      "date": "2025",
+      "tags": [
+        "astrophysics",
+        "orbital-dynamics",
+        "numerical-methods"
+      ],
+      "status": "in-progress",
+      "links": {},
+      "relatedProjects": [
+        "three-body-gravitational-slingshots"
+      ]
+    },
+    {
+      "id": "orbital-determination-research-paper",
+      "slug": "orbital-determination-research-paper",
+      "title": "Orbital Determination Research Paper",
+      "type": "research",
+      "abstract": "Astrometric orbit determination work focused on estimating orbital elements from observational data.",
+      "date": "2018",
+      "tags": [
+        "astrophysics",
+        "observational-astronomy",
+        "orbital-mechanics"
+      ],
+      "status": "published",
+      "links": {
+        "pdf": "/writing/orbital-determination-research-paper/paper.pdf"
+      },
+      "relatedProjects": [
+        "asteroid-orbit-determination"
+      ]
+    },
+    {
+      "id": "advanced-machining-fundamentals-lecture-series",
+      "slug": "advanced-machining-fundamentals-lecture-series",
+      "title": "Fundamentals of Advanced Machining (Lecture Series)",
+      "type": "technical",
+      "abstract": "Physics-first lecture series covering spindle power, torque limits, chip-load reasoning, and practical CNC process planning for students.",
+      "date": "2025",
+      "tags": [
+        "manufacturing",
+        "cnc-machining",
+        "teaching"
+      ],
+      "status": "published",
+      "links": {
+        "pdf": "/projects/advanced-machining-fundamentals/Fundamentals of Advanced Machining.pdf"
+      },
+      "relatedProjects": [
+        "advanced-machining-fundamentals"
+      ]
+    }
+  ]
+}

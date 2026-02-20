@@ -1,0 +1,278 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ─── Theme custom properties ─── */
+:root {
+  --bg-primary: #1a2233;
+  --bg-secondary: #050811;
+  --text-primary: #e0e0e0;
+  --text-secondary: #9ca3af;
+  --glass-bg: rgba(26, 34, 51, 0.72);
+  --glass-border: rgba(148, 163, 184, 0.22);
+  --nav-height: 4rem;
+  --section-y: 5rem;
+  --section-y-tight: 3rem;
+  --header-top-gap: 4rem;
+  --header-bottom-gap: 4rem;
+  --reading-max: 52rem;
+}
+
+.light {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #e2e8f0;
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --glass-bg: rgba(255, 255, 255, 0.82);
+  --glass-border: rgba(100, 116, 139, 0.24);
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body), system-ui, -apple-system, sans-serif;
+  font-feature-settings: 'rlig' 1, 'calt' 1;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display), ui-serif, Georgia, serif;
+  letter-spacing: -0.01em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+/* Utility classes */
+.container-max {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.reading-width {
+  max-width: var(--reading-max);
+}
+
+.section-block {
+  padding-top: var(--section-y);
+  padding-bottom: var(--section-y);
+}
+
+.section-block-tight {
+  padding-top: var(--section-y-tight);
+  padding-bottom: var(--section-y-tight);
+}
+
+.page-header {
+  padding-top: calc(var(--nav-height) + var(--header-top-gap));
+  padding-bottom: var(--header-bottom-gap);
+}
+
+.page-header-tight {
+  padding-top: calc(var(--nav-height) + 1.5rem);
+  padding-bottom: 2.5rem;
+}
+
+/* ─── Project accent colour utilities ─── */
+/* These reference --accent / --accent-rgb set via inline style. */
+.accent-text   { color: var(--accent); }
+.accent-border { border-color: var(--accent); }
+
+.accent-tag {
+  background: rgba(var(--accent-rgb), 0.15);
+  color: var(--accent);
+  border: 1px solid rgba(var(--accent-rgb), 0.25);
+}
+.accent-tag:hover {
+  border-color: rgba(var(--accent-rgb), 0.45);
+}
+.accent-glow:hover {
+  box-shadow: 0 0 30px rgba(var(--accent-rgb), 0.25);
+  border-color: rgba(var(--accent-rgb), 0.4);
+}
+.accent-bar {
+  background: var(--accent);
+}
+
+.gradient-text {
+  @apply text-cyan-400;
+}
+
+.light .gradient-text {
+  color: #0891b2;
+}
+
+.glow-text {
+  text-shadow: 0 0 10px rgba(110, 231, 255, 0.4), 0 0 20px rgba(110, 231, 255, 0.2);
+}
+
+.glow-text-strong {
+  text-shadow: 0 0 15px rgba(110, 231, 255, 0.6), 0 0 30px rgba(110, 231, 255, 0.3);
+}
+
+.glass-morphism {
+  background: var(--glass-bg);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--glass-border);
+  border-radius: 0.75rem;
+}
+
+.glass-morphism-strong {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(110, 231, 255, 0.15);
+  border-radius: 0.75rem;
+}
+
+.font-display {
+  font-family: var(--font-display), ui-serif, Georgia, serif;
+}
+
+.ambient-panel {
+  border: 1px solid rgba(148, 163, 184, 0.24);
+  box-shadow: 0 18px 40px rgba(5, 8, 17, 0.3);
+}
+
+.light .ambient-panel {
+  border: 1px solid rgba(100, 116, 139, 0.2);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+/* Light-mode utility tone corrections for readability */
+.light .text-gray-300 {
+  color: #334155 !important;
+}
+
+.light .text-gray-400 {
+  color: #475569 !important;
+}
+
+.light .text-gray-500 {
+  color: #64748b !important;
+}
+
+.light .text-cyan-300 {
+  color: #0e7490 !important;
+}
+
+.light .text-cyan-400 {
+  color: #0891b2 !important;
+}
+
+.light .border-white\/10 {
+  border-color: rgba(100, 116, 139, 0.2) !important;
+}
+
+.light .bg-white\/10 {
+  background-color: rgba(15, 23, 42, 0.06) !important;
+}
+
+.light .hover\:bg-white\/20:hover {
+  background-color: rgba(15, 23, 42, 0.1) !important;
+}
+
+/* Enhanced glow effects */
+.glow-border {
+  position: relative;
+  border: 1px solid rgba(110, 231, 255, 0.3);
+  transition: border-color 0.3s ease;
+}
+
+.glow-border:hover {
+  border-color: rgba(110, 231, 255, 0.5);
+}
+
+/* Floating animation for icons */
+@keyframes float-icon {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.float-icon {
+  animation: float-icon 3s ease-in-out infinite;
+}
+
+/* Subtle shimmer effect for text */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.shimmer-text {
+  color: #e0e0e0;
+}
+
+/* Allow browser to skip offscreen rendering work for heavy card lists */
+.cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 420px;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(10, 14, 39, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(110, 231, 255, 0.3);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(110, 231, 255, 0.5);
+}
+
+/* Focus states for accessibility */
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid rgba(110, 231, 255, 0.6);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
