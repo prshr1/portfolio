@@ -65,7 +65,6 @@ export default function ProjectDetailClient({
     { key: 'datarepo', label: 'Data Repo', variant: 'outline' },
     { key: 'competition', label: 'Competition', variant: 'outline' },
     { key: 'diagram', label: 'Diagram', variant: 'outline' },
-    { key: 'channel', label: 'Channel', variant: 'outline' },
     { key: 'postprocessor', label: 'Post-Processor', variant: 'outline' },
     { key: 'mpc', label: 'MPC Archive', variant: 'outline' },
     { key: 'notebooks', label: 'Notebooks', variant: 'outline' },
@@ -76,6 +75,14 @@ export default function ProjectDetailClient({
     typeof writing.links?.pdf === 'string' && writing.links.pdf.trim().length > 0
       ? writing.links.pdf
       : null;
+  const channelHref =
+    typeof project.links?.channel === 'string' && project.links.channel.trim().length > 0
+      ? project.links.channel
+      : null;
+  const visibleLinkItems = linkItems.filter((item) => {
+    const val = project.links?.[item.key];
+    return typeof val === 'string' && val.trim().length > 0;
+  });
 
   const topSlot =
     hasSubpageNav ? (
@@ -180,10 +187,14 @@ export default function ProjectDetailClient({
           )}
 
           {/* Related Writings */}
-          {relatedWritings.length > 0 && (
+          {(relatedWritings.length > 0 || channelHref) && (
             <motion.div variants={fadeInUp} className="mb-12 pt-4 border-t border-white/10">
               <p className="text-xs md:text-sm uppercase tracking-wider text-gray-400 mb-3">
-                Related Writings
+                {relatedWritings.length > 0
+                  ? channelHref
+                    ? 'Related Writings & Resources'
+                    : 'Related Writings'
+                  : 'Related Resources'}
               </p>
               <div className="space-y-3">
                 {relatedWritings.map((writing) => {
@@ -225,6 +236,21 @@ export default function ProjectDetailClient({
                     </div>
                   );
                 })}
+                {channelHref && (
+                  <div className="rounded-lg border border-cyan-500/25 bg-white/[0.02] p-3 md:p-4">
+                    <p className="font-semibold mb-2 text-sm md:text-base">Channel</p>
+                    <div className="flex flex-wrap gap-2">
+                      <a
+                        href={channelHref}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={uiButtonStyles.outlineSm}
+                      >
+                        Visit Channel
+                      </a>
+                    </div>
+                  </div>
+                )}
               </div>
             </motion.div>
           )}
@@ -302,13 +328,9 @@ export default function ProjectDetailClient({
           )}
 
           {/* Links */}
-          <motion.div variants={fadeInUp} className="flex flex-wrap gap-4 mb-12">
-            {linkItems
-              .filter((item) => {
-                const val = project.links?.[item.key];
-                return typeof val === 'string' && val.trim().length > 0;
-              })
-              .map((item) => (
+          {visibleLinkItems.length > 0 && (
+            <motion.div variants={fadeInUp} className="flex flex-wrap gap-4 mb-12">
+              {visibleLinkItems.map((item) => (
                 <a
                   key={item.key}
                   href={project.links[item.key]}
@@ -323,7 +345,8 @@ export default function ProjectDetailClient({
                   {item.label}
                 </a>
               ))}
-          </motion.div>
+            </motion.div>
+          )}
         </ProjectContentShell>
 
       <Lightbox
