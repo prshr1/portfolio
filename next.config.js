@@ -2,20 +2,6 @@
 const createMDX = require('@next/mdx');
 const isDev = process.env.NODE_ENV === 'development';
 
-/* remark-math v6+ and rehype-katex v7+ are ESM-only.
-   CJS `require()` returns { __esModule: true, default: fn }.
-   Extract .default so unified receives the actual plugin function. */
-const remarkMath = require('remark-math');
-const rehypeKatex = require('rehype-katex');
-
-const withMDX = createMDX({
-  extension: /\.mdx?$/,
-  options: {
-    remarkPlugins: [remarkMath.default || remarkMath],
-    rehypePlugins: [rehypeKatex.default || rehypeKatex],
-  },
-});
-
 const nextConfig = {
   // Only enable static export for production builds (GitHub Pages)
   ...(isDev ? {} : { output: 'export' }),
@@ -26,4 +12,18 @@ const nextConfig = {
   },
 };
 
-module.exports = withMDX(nextConfig);
+module.exports = async () => {
+  // remark-math/rehype-katex are ESM-only; load them via dynamic import in CJS config.
+  const { default: remarkMath } = await import('remark-math');
+  const { default: rehypeKatex } = await import('rehype-katex');
+
+  const withMDX = createMDX({
+    extension: /\.mdx?$/,
+    options: {
+      remarkPlugins: [remarkMath],
+      rehypePlugins: [rehypeKatex],
+    },
+  });
+
+  return withMDX(nextConfig);
+};
